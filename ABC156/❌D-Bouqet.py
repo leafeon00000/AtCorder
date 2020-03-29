@@ -1,30 +1,16 @@
 # coding: utf-8
-# n本の花から花束を作る問題。ただしa本、b本はダメ。
-# 処理が重すぎた
 
-#####コンビネーション nCr #######
-from operator import mul
-from functools import reduce
+import math
 
+# 標準入力 <int><int>
+n, a, b = map(int, input().split())
 
-def cmb(n, r):
-    r = min(n-r, r)
-    if r == 0:
-        return 1
-    over = reduce(mul, range(n, n - r, -1))
-    under = reduce(mul, range(1, r + 1))
-    return over // under
-################################
-
-
-N = list(map(int, input().split()))  # n a b
-n, a, b = N[0], N[1], N[2]
 w = 10 ** 9 + 7
 
-taba = 0
+# 組み合わせ nCr = n!/(r!*(n-r)!)
+def comb(n, r):
+  return math.factorial(n) // (math.factorial(n - r) * math.factorial(r))
 
-for i in range(1, n + 1):
-    if (i != a and i != b):
-        taba += cmb(n, i)
+ans = ((2 ** n) - 1) -comb(n,a) - comb(n,b)
 
-print(taba % w)
+print(ans % w)

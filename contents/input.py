@@ -23,6 +23,9 @@ S = []
 for _ in range(n):
     S.append(input())  # S += [input()] とも書ける
 
+# sorted 標準入力 <int> list[]
+p = sorted([int(i) for i in input().split()])
+
 # 標準入力 <str> list[][] 複数行・複数列
 I = []
 for _ in range(n):

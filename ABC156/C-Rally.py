@@ -11,9 +11,3 @@ for num in range(100):
     HPlist.append(tmp)
 
 print(min(HPlist))
-
-# for item in x:
-#    HP += (item - n) ** 2
-#    print(item, HP, (item-n) ** 2)
-
-# print(HP)

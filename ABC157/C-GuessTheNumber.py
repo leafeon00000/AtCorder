@@ -7,30 +7,25 @@ I = []
 for _ in range(M):
     I.append(list(map(str, input().split())))
 
-ans = ['x'] * N
+ans = -1
 
-isOK = False
+for i in I:
+    if i[1] == '0':
+        if int(i[0]) < N:
+            print(ans)
+            exit()
 
-for j in range(M):
-    if int(I[j][0]) > N:
-        ans = "-1"
+for a in range(1000):
+    sn = str(a).zfill(3)
+    isOk = True
+    #print("++++", a)
+    for i in range(M):
+        #print(I[i][0], sn[int(I[i][0]) - 1], I[i][1])
+        if sn[int(I[i][0]) - 1] != I[i][1]:
+            isOk = False
+            break
+    if isOk:
+        ans = a
         break
-    elif ans[int(I[j][0]) - 1] == str(I[j][1]) or ans[int(I[j][0]) - 1] == "x":
-        ans[int(I[j][0]) - 1] = str(I[j][1])
-    elif ans[int(I[j][0]) - 1] != str(I[j][1]):
-        ans = "-1"
-        break
 
-if (ans[0] == "x" or ans[0] == "0") and ans != "-1":
-    del ans[0]
-    if ans[0] == "x" or ans[0] == "0":
-        del ans[0]
-        if ans[0] == "x":
-            ans = "-1"
-        elif ans[0] == "0":
-            ans = "0"
-
-if M == 0:
-    ans = 0
-
-print(int(''.join(ans).replace("x", "0")))
+print(int(ans))

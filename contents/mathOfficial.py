@@ -24,7 +24,8 @@ p_list = list(itertools.permutations(l, 2))
 print(len(p_list), p_list)
 
 # 組み合わせ nCr = n!/(r!*(n-r)!)
-math.factorial(n) // (math.factorial(n - r) * math.factorial(r))
+def comb(n, r):
+  return math.factorial(n) // (math.factorial(n - r) * math.factorial(r))
 
 print(math.factorial(n) // (math.factorial(n - r) * math.factorial(r)))
 
