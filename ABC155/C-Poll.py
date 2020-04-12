@@ -9,7 +9,6 @@ for _ in range(n):
 
 c = collections.Counter(S)
 m = c.most_common()[0][1]
-print("///////////////////////")
 ans = []
 for _c in c.items():
     if _c[1] == m:
