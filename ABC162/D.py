@@ -15,10 +15,8 @@ cnt = 0
 for i in range(N - 2):
   for j in range(i + 1, N - 1):
     k = i + ((j - i) * 2)
-    print(i,j,k)
     if k < N:
-      print("****")
       if S[i] != S[j] and S[j] != S[k] and S[k] != S[i]:
         cnt += 1
 
-print(R * G * B - cnt, R , G, B, cnt)
+print(R * G * B - cnt)
